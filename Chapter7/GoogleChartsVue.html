@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Vue.js sample</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  </head>
+  
+  <body>
+    <h2>GoogleChartsで円グラフを表示させる例</h2>
+    <h3>好きなランチ投票</h3>
+    <div id="chart_div" style="width: 500px; height: 500px;"></div>
+    <div id="app">
+      <!-- (item, c)  => インデックス（添字）を取り出す -->
+      <!-- v-if="c>0" => タイトルを除外する -->
+      <!-- item[0] => 種類、 item[1] => 個数 -->
+      <li v-for="(item, c) in dataArray" v-if="c>0">{{ item[0] }} : {{ item[1] }}
+        <!-- addOne(c) => <li>の内部だからインデックスにアクセスできる -->
+        <button v-on:click="addOne(c)">一票</button>
+      </li>
+    </div>
+
+    <script>
+    //  グラフに使う（元）データ
+    var orgdata = [
+      ['種類', '個数'],
+      ['幕の内', 3], ['カルビ弁当', 4], ['オムライス', 5], ['冷やし中華', 1], ['ビビンバ丼', 3], ['ざるそば', 1]
+    ];
+    
+    google.charts.load('current', {packages: ['corechart']});
+    google.charts.setOnLoadCallback(drawBasic);
+    
+    //  グラフを表示する関数
+    function drawBasic() {
+      var data = google.visualization.arrayToDataTable(orgdata);
+      var options = {title: '好きなランチ', "is3D": true};
+      var chart = new google.visualization.PieChart(
+        document.getElementById('chart_div'));
+      chart.draw(data, options);
+    }
+
+    new Vue({
+      el: '#app',
+      data: {
+        dataArray: orgdata  //  実体ではなくポインター宣言的な？
+      },
+      methods: {
+        addOne: function(val) { //  引数＝インデックス
+          var obj = this.dataArray[val];
+          obj[1]++;
+          this.dataArray.splice(val, 1, obj); //  値の変更
+          drawBasic();
+        }
+      }
+    })
+    </script>
+  </body>
+</html>

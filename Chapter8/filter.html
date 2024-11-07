@@ -1,0 +1,10 @@
+<script>
+var items = [3,2,2,4,8,8,8,6,9];
+
+var result = items.filter(function(value, index, array) {
+
+    //配列のインデックス番号を使って重複部分を検出する
+    console.log( array.indexOf( value ) + ' : ' + index );
+
+})
+</script>

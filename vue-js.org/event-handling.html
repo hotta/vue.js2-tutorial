@@ -1,0 +1,67 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<p>Vue.js チュートリアル(イベントハンドリング) 
+  <a href="https://v2.ja.vuejs.org/v2/guide/events">https://v2.ja.vuejs.org/v2/guide/events</a>
+</p>
+
+<h2>1.イベントの購読</h2>
+
+<div id="example-1">
+  <button v-on:click="counter += 1">Add 1</button>
+  <p>上のボタンが {{ counter }} 回押されました。</p>
+</div>
+
+<h2>2.メソッドイベントハンドラ</h2>
+
+<div id="example-2">
+  <!-- `greet` は、あらかじめ定義したメソッドの名前 -->
+  <button v-on:click="greet">Greet</button>
+</div>
+
+
+<h2>3.インラインイベントハンドラ</h2>
+
+<div id="example-3">
+  <button v-on:click="say('hi')">Say hi</button>
+  <button v-on:click="say('what')">Say what</button>
+</div>
+
+<script>
+var example1 = new Vue({
+  el: '#example-1',
+  data: {
+    counter: 0
+  }
+})
+
+var example2 = new Vue({
+  el: '#example-2',
+  data: {
+    name: 'Vue.js'
+  },
+  // `methods` オブジェクトの下にメソッドを定義する
+  methods: {
+    greet: function (event) {
+      // メソッド内の `this` は、 Vue インスタンスを参照します
+      alert('Hello ' + this.name + '!')
+      // `event` は、ネイティブ DOM イベントです
+      if (event) {
+        alert(event.target.tagName)
+      }
+    }
+  }
+})
+
+// JavaScript からメソッドを呼び出すこともできます
+// example2.greet() // => 'Hello Vue.js!'
+
+new Vue({
+  el: '#example-3',
+  methods: {
+    say: function (message) {
+      alert(message)
+    }
+  }
+})
+
+
+</script>

@@ -1,0 +1,28 @@
+<!-- チェックボックスで表示／非表示時をアニメーションする:transition -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+  <label><input type="checkbox" v-model="isOK">切り替える</label>
+  <transition>
+    <p v-if="isOK">表示・非表示のアニメ</p>
+  </transition>
+</div>
+
+<style>
+  .v-enter-active, .v-leave-active { /*  現れている最中と、消えている最中  */
+    transition: 0.5s;       /*  0.5秒かけて遷移  */
+  }
+  .v-enter, .v-leave-to {   /* 現れる前と消えた後の状態 */
+    opacity: 0;                   /*  透明  */
+    transform: translateY(20px);  /*  下へ20px移動  */
+  }
+</style>
+
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      isOK: false
+    }
+  })
+</script>

@@ -1,0 +1,21 @@
+<!-- オブジェクトの配列データをリストで表示する -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+  <ul>
+    <li v-for="item in objArray">{{ item.name }} \{{ item.price }}</li>
+  </ul>
+</div>
+
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      objArray: [ 
+        { name: 'ジャムパン', price: 100 },
+        { name: 'メロンパン', price: 120 },
+        { name: 'クロワッサン', price: 150 }
+      ]
+    }
+  })
+</script>

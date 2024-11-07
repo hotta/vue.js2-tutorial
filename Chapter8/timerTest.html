@@ -1,0 +1,18 @@
+<body>
+  <h2>残り秒数が0になったらアラートを出す例</h2>
+  <button onclick="startTimer()">START</button>
+
+  <script>
+    function startTimer() {
+      this.restSec = 5;       //  残り5秒
+      this.timerObj = setInterval(() => { countDonw() }, 1000)
+    }
+    function countDonw()  {
+      this.restSec--;
+      if (this.restSec <= 0)  {
+        alert("制限時間です。");
+        clearInterval(this.timerObj);
+      }
+    }
+  </script>
+</body>

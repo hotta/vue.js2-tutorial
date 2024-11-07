@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Chapter13: JSONを読み込む例(JavaScript)</title>
+  </head>
+
+  <body>
+    <h2>JSONを読み込む例(JavaScript)</h2>
+    <input type="file" id="loader">       <!-- ファイル選択ダイアログ -->
+    <script>
+      var obj1 = document.getElementById('loader');
+      obj1.addEventListener("change", loadFile, false);
+
+      function loadFile(e) {
+        file = e.target.files[0]
+        if (file) {   //  ファイルが選択されていれば
+          var reader = new FileReader();
+          reader.onload = function(e) {
+            console.log("e.target = " + e.target);        //  object FileReader
+            console.log("e.target.result = " + e.target.result);  //  ファイル全体
+            json = JSON.parse(e.target.result);
+            console.log("json.length = " + json.length);  //  3
+            for (var i=0; i<json.length; i++) {
+              console.log("json[" + i + "].title=" + json[i].title + " , json[" + i + "].body=" + json[i].body);
+            }
+          }
+          reader.readAsText(file);        //  ファイル読み込み
+        }
+      }
+    </script>
+  </body>
+</html>

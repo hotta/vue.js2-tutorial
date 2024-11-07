@@ -1,0 +1,35 @@
+<!-- ボタンでリストの追加・削除を行う -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+  <ul>
+    <li v-for="item in myArray">{{ item }}</li>
+  </ul>
+  <button v-on:click="addLast">末尾に追加</button><br>
+  <button v-on:click="addObj(3)">４つ目に追加</button><br>
+  <button v-on:click="changeObj(0)">１つ目を変更</button><br>
+  <button v-on:click="deleteObj(1)">２つ目を削除</button><br>
+</div>
+
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      myArray: [ '１つ目', '２つ目', '３つ目', '４つ目', '５つ目' ],
+    },
+    methods: {
+      addLast: function() {
+        this.myArray.push("[末尾に追加]")
+      },
+      addObj: function(index) {
+        this.myArray.splice(index, 0, "[追加]")
+      },
+      changeObj: function(index) {
+        this.myArray.splice(index, 1, "[変更]")
+      },
+      deleteObj: function(index) {
+        this.myArray.splice(index, 1)
+      },
+    }
+  })
+</script>

@@ -1,0 +1,23 @@
+<!-- 金額を入力したら、税込金額を計算する -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+  <!-- v-model.number => 入力を自動的に数値に変換する -->
+  <!-- type="number" 数値以外の入力をガードする(html) -->
+  <input v-model.number="price" type="number">円
+  <p>消費税込みの金額 {{ taxIncluded }}円</p>
+</div>
+
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      price: 100
+    },
+    computed: {
+      taxIncluded: function() {
+        return Math.floor(this.price * 1.10); //  切り捨て
+      }
+    }
+  })
+</script>

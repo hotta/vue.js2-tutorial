@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Chapter12: v-forでコンポーネントを繰り返す</title>
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  </head>
+
+  <style>
+    .my-comp  {
+      width: 300px;
+      background-color: #ffffe0;
+      border: solid;
+      border-color: darkorange;
+      border-radius: 8px;
+      padding: 8px;
+    }
+  </style>
+
+<body>
+    <h2>配列からコンポーネントを作って表示する</h2>
+
+    <div id="app">
+      <!-- my-component, my-name: ケバブケース、myArray: パスカルケース -->
+      <!-- (item, index) は item だけでも OK -->
+      <!-- m-name: props で配列からデータを受け取るための属性 -->
+      <my-component v-for="(item, index) in myArray" v-bind:my-name="item">
+      </my-component>
+    </div>
+
+    <script>
+      var MyComponent = {           //  パスカルケース
+        // my-component タグで展開される内容
+        // クラス名はケバブケース、mustache 内はパスカルケース
+        template: '<p class="my-comp">私は{{ myName }}です。</p>',
+        //  親コンポーネントからデータを受け取るための属性のリスト／ハッシュ
+        //  この例ではバリデーション付き
+        props: {
+          myName: String            //  パスカルケース
+        },
+        created: function() {
+          if (this.myName == null) {
+            this.myName = "名無しさん";
+          }
+        },
+      }
+      new Vue({
+        el: '#app',
+        data: {
+          myArray: [ '桃太郎', '浦島太郎', '金太郎', null ]
+        },
+        components: {
+          'my-component': MyComponent  //  ケバブケース: パスカルケース
+        }
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+<!-- クリックしたら２回目は押せなくなるいいねボタン -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+  <button value="いいね" v-bind:disabled="isClick"
+    v-on:click="oneClick">いいね</button>
+</div>
+
+<script>
+  function like() {
+    alert("いいね");
+  }
+  new Vue({
+    el: '#app',
+    data: {
+      isClick: false
+    },
+    methods: {
+      oneClick: function() {
+        this.isClick = true;
+        like();
+      }
+    }
+  })
+</script>

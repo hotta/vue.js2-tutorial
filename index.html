@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <style>
+    table    {
+      margin-left: 50px;
+      border-color: blue;
+      border-collapse: collapse;
+    }
+    td  {
+      padding: 5px;
+    }
+    .red  { color: red; }
+  </style>
+  <body>
+    <h2>Vue.js開発入門収録サンプル</h2>
+    <h3>Chapter1. Vue.jsって何？</h3>
+    <dl>
+      <li><a href="Chapter1/countup.html">クリックした回数を表示するボタン</a>(countup.html)</li>
+    </dl>
+
+    <h3>Chapter2. データを表示するとき</h3>
+    <dl>
+      <li><a href="Chapter2/hello.html">データをそのまま表示する</a>(hello.html) ✕</li>
+      <li><a href="Chapter2/hello2.html">データをv-textで表示する</a>(hello2.html) ✕</li>
+      <li><a href="Chapter2/hello3.html">データをHTMLで表示する</a>(hello3.html) ✕</li>
+      <li><a href="Chapter2/datatest1.html">いろいろな型のデータを表示する</a>(datatest1.html) ✕</li>
+      <li><a href="Chapter2/datatest2.html">JavaScriptの式を使って表示する</a>(datatest2.html) ✕</li>
+      <li><a href="Chapter2/datatest3.html">配列の値を表示する</a>(datatest3.html) ✕</li>
+      <li><a href="Chapter2/datatest4.html">オブジェクトデータを表示する</a>(datatest4.html) ✕</li>
+      <li><a href="Chapter2/datatest5.html">JavaScriptで用意したデータを表示する</a>(datatest5.html) ✕</li>
+      <li><a href="Chapter2/datatest6.html">オブジェクトデータの中身を確認する</a>(datatest6.html) ✕</li>
+    </dl>
+    <table border="1">
+      <tr>
+        <td>el オプション</td>
+        <td>どの HTML 要素とつながるのか？</td>
+      </tr>
+      <tr>
+        <td>data オプション</td>
+        <td>どんなデータがあるのか？</td>
+      </tr>
+      <tr>
+        <td>{{ プロパティ名 }}</td>
+        <td>データをそのまま表示する（mustache タグ）</td>
+      </tr>
+      <tr>
+        <td>v-text="プロパティ名"</td>
+        <td>データをそのまま表示する</td>
+      </tr>
+      <tr>
+        <td>v-html="プロパティ名"</td>
+        <td>データをHTMLとして表示する</td>
+      </tr>
+      <tr>
+        <td>文字列.substr(start, length)</td>
+        <td>(JS) 文字列から一部を切り出す</td>
+      </tr>
+      <tr>
+        <td>プロパティ: [ 値1, 値2, ...]</td>
+        <td>配列型</td>
+      </tr>
+      <tr>
+        <td>プロパティ: { キー1: 値1, キー2: 値2, ...}</td>
+        <td>オブジェクト型</td>
+      </tr>
+    </table>
+    <h3>Chapter3. 属性を指定するとき(v-bind)</h3>
+    <dl>
+      <li><a href="Chapter3/bindtest1.html">画像を指定する</a>(bindtest1.html) ✕</li>
+      <li><a href="Chapter3/bindtest2.html">リンク先を指定する</a>(bindtest2.html) ✕</li>
+      <li><a href="Chapter3/bindtest3.html">alignを指定する</a>(bindtest3.html) ✕</li>
+      <li><a href="Chapter3/bindtest4.html">インラインスタイルを指定する</a>(bindtest4.html) ✕</li>
+      <li><a href="Chapter3/bindtest5.html">クラスを指定する</a>(bindtest5.html)</li>
+    </dl>
+    <table border="1">
+      <tr>
+        <td>v-bind:属性="プロパティ"</td>
+        <td>データをHTMLの属性として使う</td>
+      </tr>
+      <tr>
+        <td>:属性="プロパティ"</td>
+        <td>v-bind の省略記法</td>
+      </tr>
+      <tr>
+        <td>HTML / CSS</td>
+        <td>ケバブケース( word-word )</td>
+      </tr>
+      <tr>
+        <td>JavaScritpt</td>
+        <td>キャメルケース( wordWord )</td>
+      </tr>
+      <tr>
+        <td>JavaScritpt（クラス名）</td>
+        <td>パスカルケース( WordWord )</td>
+      </tr>
+    </table>
+    <h3>Chapter4. ユーザーの入力をつなぐとき(v-model)</h3>
+    <dl>
+      <li><a href="Chapter4/modeltest1.html">入力した文字列を指定する</a>(modeltest1 / P.65) ✕</li>
+      <li><a href="Chapter4/modeltest2.html">入力した文章と文字数を表示する</a>(modeltest2 / P.66) ✕</li>
+      <li><a href="Chapter4/modeltest3.html">チェックボックスのOn/OFFを調べる</a>(modeltest3 / P.68) ✕</li>
+      <li><a href="Chapter4/modeltest4.html">複数のチェックボックスのOnを配列にする</a>(modeltest4 / P.69)</li>
+      <li><a href="Chapter4/modeltest5.html">同意にチェックを入れたら送信ボタンが有効になる</a>(modeltest5 / P.70)</li>
+      <li><a href="Chapter4/modeltest6.html">選択したラジオボタンを表示する</a>(modeltest6 / P.73)</li>
+      <li><a href="Chapter4/modeltest7.html">画像の表示をラジオボタンで切り替える</a>(modeltest7 / P.74) ✕</li>
+      <li><a href="Chapter4/modeltest8.html">文字列が選択した色に変わる</a>(modeltest8 / P.76) ✕</li>
+      <li><a href="Chapter4/modeltest9.html">複数の選択を配列にする</a>(modeltest9 / P.77) ✕</li>
+      <li><a href="Chapter4/modeltest10.html">全部描き終わってから入力する</a>(modeltest10 / P.79) ✕</li>
+      <li><a href="Chapter4/modeltest11.html">入力を自動的に数値に変換する</a>(modeltest11 / P.80) ✕</li>
+      <li><a href="Chapter4/modeltest11b.html">入力を自動的に数値に変換しない</a>(modeltest11b / P.82) ✕</li>
+      <li><a href="Chapter4/modeltest12.html">前後の空白を自動的に削除（トリム）する</a>(modeltest12 / P.82) ✕</li>
+      <li><a href="Chapter4/modeltest12b.html">前後の空白を自動的に削除（トリム）しない</a>(modeltest12b / P.83) ✕</li>
+    </dl>
+    <table border="1">
+      <tr>
+        <td>v-model="プロパティ"</td>
+        <td>入力フォームとデータをつなぐ</td>
+      </tr>
+      <tr>
+        <td>v-model="myAgree"<br>
+        v-bind:disabled="myAgree==false"<br>
+        または v-bind:disabled="!myAgree"</td>
+        <td>同意するまでボタンを押させない</td>
+      </tr>
+      <tr>
+        <td>v-model.lazy="プロパティ"</td>
+        <td>（１文字ずつ反応するのではなく）全部書き終わってから入力したい</td>
+      </tr>
+      <tr>
+        <td>v-model.number="プロパティ"</td>
+        <td>入力しを自動的に数値に変換する</td>
+      </tr>
+      <tr>
+        <td>v-model.trim="プロパティ"</td>
+        <td>前後の空白を自動的に削除する</td>
+      </tr>
+    </table>
+    <h3>Chapter5. ユーザーの操作をつなぐとき(v-on)</h3>
+    <dl>
+      <li><a href="Chapter5/ontest1.html">クリックしたら１増やす</a>(ontest1 / P.92)</li>
+      <li><a href="Chapter5/ontest2.html">クリックしたら２回目は押せなくなるいいねボタン</a>(ontest2 / P.93)</li>
+      <li><a href="Chapter5/ontest3.html">クリックしたら値をいろいろ増やす</a>(ontest3 / P.96) ✕</li>
+      <li><a href="Chapter5/ontest4.html">[Enter]キーを押したらアラートを表示する</a>(ontest4 / P.98)</li>
+      <li><a href="Chapter5/ontest5.html">[Shift]+[Enter]キーを押したらアラートを表示する</a>(ontest5 / P.99) ✕</li>
+    </dl>
+    <table border="1">
+      <tr>
+        <td>v-on:イベント名="メソッド名"<br>
+        <span class="red">methods</span>: { メソッド名 ... }</td>
+        <td>イベント（click等）とデータをつなぐ</td>
+      </tr>
+      <tr>
+        <td>v-on:keyup.キー修飾子="メソッド名"</td>
+        <td>キーが押されたらメソッドを実行する</td>
+      </tr>
+    </table>
+    <h3>Chapter6. 条件(v-if)と繰り返し(v-for)を使うとき</h3>
+    <dl>
+      <li><a href="Chapter6/iftest1.html">trueのときだけ表示する</a>(iftest1 / P.106) ✕</li>
+      <li><a href="Chapter6/iftest2.html">trueとfalseで表示を切り替える</a>(iftest2 / P.108) ✕</li>
+      <li><a href="Chapter6/iftest3.html">クリックしたら「いいね」ボタンが消える</a>(iftest3 / P.109) ✕</li>
+      <li><a href="Chapter6/fortest1.html">配列データをリストで表示する</a>(fortest1 / P.111)</li>
+      <li><a href="Chapter6/fortest2.html">オブジェクトの配列データをリストで表示する</a>(fortest2 / P.113)</li>
+      <li><a href="Chapter6/fortest3.html">1x5～10x5を繰り返し表示する</a>(fortest3 / P.114) ✕</li>
+      <li><a href="Chapter6/fortest4.html">配列データを番号つきリストで表示する</a>(fortest4 / P.115)</li>
+      <li><a href="Chapter6/tabletest0.html">配列データをテーブルで表示する</a>(tabletest0 / P.116) ✕</li>
+      <li><a href="Chapter6/tabletest.html">配列データをテーブルで表示する(2)</a>(tabletest / P.119)</li>
+      <li><a href="Chapter6/fortest5.html">ボタンでリストの追加・削除を行う</a>(fortest5 / P.121)</li>
+      <li><a href="Chapter6/fortest6.html">ボタンをクリックしたらソートする</a>(fortest6 / P.123)</li>
+      <li><a href="Chapter6/fortest7.html">偶数だけを表示する</a>(fortest7 / P.126) ✕</li>
+      <li><a href="Chapter6/fortest8.html">ボタンをクリックしたら偶数だけを表示する</a>(fortest8 / P.127) ✕</li>
+    </dl>
+    <table border="1">
+      <tr>
+        <td>&lt;タグ名 v-if="条件"&gt;条件がtrueなら表示&lt;/タグ名&gt;</td>
+        <td>条件を満たすときだけ表示</td>
+      </tr>
+      <tr>
+        <td>&lt;タグ名 v-if="条件"&gt;条件がtrueなら表示&lt;/タグ名&gt;<br>
+          &lt;タグ名 v-else&gt;そうでなければ表示&lt;/タグ名&gt;</td>
+        <td>条件によって表示要素を切り替える</td>
+      </tr>
+      <tr>
+        <td>&lt;タグ名 v-if="条件1"&gt;条件1がtrueなら表示&lt;/タグ名&gt;<br>
+          &lt;タグ名 v-else-if="条件2"&gt;条件2がtrueなら表示&lt;/タグ名&gt;<br>
+          &lt;タグ名 v-else&gt;どちらでもなければ表示&lt;/タグ名&gt;</td>
+        <td>複数の条件によって表示要素を切り替える</td>
+      </tr>
+      <tr>
+        <td>v-for="変数 in 配列"</td>
+        <td>配列でループ</td>
+      </tr>
+      <tr>
+        <td>v-for="変数 in 最大値"</td>
+        <td>最大値までループ</td>
+      </tr>
+      <tr>
+        <td>v-for="(変数, 番号) in 配列"</td>
+        <td>値とインデックス番号を取り出しながらループ</td>
+      </tr>
+      <tr>
+        <td>配列.push(値)</td>
+        <td>(JS) 配列の末尾にデータを追加する</td>
+      </tr>
+      <tr>
+        <td>配列.splice(指定位置, 0, 値)</td>
+        <td>(JS) 配列の途中にデータを追加する</td>
+      </tr>
+      <tr>
+        <td>配列.splice(指定位置, 1)</td>
+        <td>(JS) 配列の途中のデータを削除する</td>
+      </tr>
+      <tr>
+        <td>this.myArray = this.myArray.filter(<br>
+          &nbsp;&nbsp;function(value) { return value %2 == 0; }</td>
+        <td>(JS) 偶数だけの配列に変更</td>
+      </tr>
+    </table>
+    <h3>Chapter7. Google Chartsと連動させてみよう</h3>
+    <dl>
+      <li><a href="Chapter7/GoogleCharts.html">Google Chartsで円グラフを表示する</a>(GoogleCharts / P.136) ✕</li>
+      <li><a href="Chapter7/GoogleChartsVue.html">Google Chartsで円グラフにボタンで投票できる</a>(GoogleChartsVue / P.139)</li>
+    </dl>
+    <h3>Chapter8. データの変化を監視する（算出／監視プロパティ）</h3>
+    <dl>
+      <li><a href="Chapter8/computedtest1.html">金額を入力したら、消費税込みの金額を計算する</a>(computedtest1 / P.148)</li>
+      <li><a href="Chapter8/computedtest2.html">単価と個数を入力したら、税込み金額を計算する</a>(computedtest2 / P.150)</li>
+      <li><a href="Chapter8/computedtest3.html">文章を入力したら、残りの文字数を表示する</a>(computedtest3 / P.151)</li>
+      <li><a href="Chapter8/computedtest4.html">文字を入力したら、その文字を含む項目だけを表示する</a>(computedtest4 / P.154)</li>
+      <li><a href="Chapter8/computedtest5.html">赤緑青のスライダーを動かしたら、できた色を表示する</a>(computedtest5 / P.156)</li>
+      <li><a href="Chapter8/watchtest1.html">入力文字を監視して、禁止文字が入力されたらアラートを出す</a>(watchtest1 / P.159)</li>
+      <li><a href="Chapter8/timerTest.html">残り秒数が0になったらアラートを出す</a>(timerTest / P.161)</li>
+      <li><a href="Chapter8/watchtest2.html">残り秒数を監視して表示し、0秒になったらアラートを出す</a>(watchtest2 / P.162)</li>
+      <li><a href="Chapter8/tweenMaxTest.html">TweenMaxのテスト</a>(tweenMaxTest / P.165)</li>
+      <li><a href="Chapter8/watchtest3.html">数字がくるくるとアニメーションしながら値が増えるinput要素</a>(watchtest3 / P.166)</li>
+    </dl>
+    <table border="1">
+      <tr>
+        <td>computed: {<br>
+          &nbsp;&nbsp;プロパティ名: function() { ... }</td>
+        <td>データを使って別の計算をする（算出プロパティ）</td>
+      </tr>
+      <tr>
+        <td>watch: {<br>
+          &nbsp;&nbsp;プロパティ名: function() { ... }</td>
+        <td>入力データを監視する（監視プロパティ）</td>
+      </tr>
+    </table>
+    <h3>Chapter9. Markdownエディタを作ってみよう</h3>
+    <dl>
+      <li><a href="Chapter9/markdown.html">Markdownエディタの例</a>(markdown / P.177)</li>
+    </dl>
+    <h3>Chapter10. アニメーションするとき</h3>
+    <dl>
+      <li><a href="Chapter10/transtest.html">チェックボックスで表示／非表示アニメーション</a>(transtest / P.186) ✕</li>
+      <li><a href="Chapter10/transtest2.html">ボタンを押してリストが増減するときアニメーション</a>(transtest2 / P.186)</li>
+      <li><a href="Chapter10/shuffletest.html">クリックしたらシャッフルする</a>(shuffletest / P.194)</li>
+      <li><a href="Chapter10/transtest3.html">リストの並びが移動しながら変わるアニメーション</a>(transtest3 / P.197)</li>
+    </dl>
+    <table border="1">
+      <tr>
+        <td>&lt;transition&gt;<br>
+          &nbsp;&nbsp;&lt;div if="isOK"&gt;表示／非表示が切り替わる&lt;/div&gt;<br>
+          &lt;/transition&gt;</td>
+        <td>（アニメーションを伴う）<br>単体要素のトランジション</td>
+      </tr>
+      <tr>
+        <td>&lt;transition-group&gt;<br>
+          &nbsp;&nbsp;&lt;li v-for="item in dataArray" v-bind:<span class="red">key</span>="item"&gt;{{ item }}&lt;/li&gt;<br>
+          &lt;/transition-group&gt;</td>
+        <td>（アニメーションを伴う）<br>リストのトランジション</td>
+      </tr>
+    </table>
+    <h3>Chapter11. ToDoリストを作ってみよう</h3>
+    <dl>
+      <li><a href="Chapter11/todolist1.html">仮データで表示するToDOリスト</a>(todolist1 / P.208)</li>
+      <li><a href="Chapter11/todolist2.html">ToDo項目の追加＆削除機能を追加したToDOリスト</a>(todolist2 / P.213)</li>
+    </dl>
+    <h3>Chapter12. 部品にまとめる</h3>
+    <dl>
+      <li><a href="Chapter12/comptest1.html">コンポーネントを作って表示する</a>(comptest1 / P.224)</li>
+      <li><a href="Chapter12/comptest2.html">それぞれ別々にカウントするコンポーネントの例</a>(comptest2 / P.226)</li>
+      <li><a href="Chapter12/comptest3.html">コンポーネントに値を渡す例</a>(comptest3 / P.231)</li>
+      <li><a href="Chapter12/comptest4.html">配列からコンポーネントを作って表示する例</a>(comptest4 / P.233)</li>
+    </dl>
+    <table border="1">
+      <tr>
+        <td>&lt;タグ名&gt;&lt;/タグ名&gt;<br>
+          var オブジェクト名 = { template: 'HTML部分' }<br>
+          data: function() { ... }<br>
+          props: { プロパティ名: データ型 }<br>
+          created: function() { ... }<br>
+          components: { 'タグ名': オブジェクト名 }</td>
+        <td>部品にまとめる（コンポーネント）<br>
+          オブジェクト名：パスカルケース<br>
+          タグ名：ケバブケース</td>
+      </tr>
+    </table>
+    <h3>Chapter13. JSONデータを表示させてみよう</h3>
+    <dl>
+      <li><a href="Chapter13/jsonLoad.html">JSONを読み込む例(JavaScript)</a>(jsonLoad / P.240)</li>
+      <li><a href="Chapter13/jsonLoadVue.html">JSONを読み込む例(Vue.js)</a>(jsonLoadVue / P.242)</li>
+      <li><a href="Chapter13/jsontest1.html">配列データをコンポーネントで並べる</a>(jsontest1 / P.245)</li>
+    </dl>
+    <table border="1">
+      <tr>
+        <td>FileReader()</td>
+        <td>ファイルの読み込みクラス</td>
+      </tr>
+    </table>
+  </body>
+</html>

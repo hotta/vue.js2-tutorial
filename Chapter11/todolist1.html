@@ -1,0 +1,50 @@
+<!-- Todoリスト -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Vue.js sample</title>
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  </head>
+
+  <body>
+    <h2>Todoリスト</h2>
+    <div id="app">
+      <div v-for="todo in todos">
+        <label>
+          <input type="checkbox" v-model="todo.done">
+          <span v-bind:class="{donestyle:todo.done}">{{ todo.text }}</span>
+        </label>
+      </div>
+      <p>{{ remaining }} / {{ todos.length }} 件処理</p>
+    </div>
+
+    <style>
+      .donestyle  {
+        text-decoration: line-through;
+        color: lightgray;
+      }
+    </style>
+
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          todos:  [
+            { done: false, text: 'パンを買う' },
+            { done: false, text: 'コーヒーを買う' },
+          ]
+        },
+        computed: {
+          <!-- todos.done == true であるデータの個数を求める -->
+          remaining: function() {
+            return this.todos.filter(function(val)  {
+              return  val.done;
+            }).length;
+          }
+        }
+      })
+    </script>
+  </body>
+</html>

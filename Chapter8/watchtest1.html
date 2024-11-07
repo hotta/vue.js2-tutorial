@@ -1,0 +1,29 @@
+<!-- 入力文字を監視して、禁止文字が入力されたらアラートを出す -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+  <p>禁止文字は「{{ forbiddenText }}」です。</p>
+  <textarea v-model="inputText"></textarea>
+</div>
+
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      forbiddenText: 'だめ',
+      inputText: '今日は天気です。'
+    },
+    watch: {
+      //  入力文字列を（１文字単位で）監視する
+      inputText: function() {
+        var pos = this.inputText.indexOf(this.forbiddenText);
+        if (pos >= 0) {
+          alert(this.forbiddenText + "は入力できません。");
+          //  入力文字列から禁止文字列を削除する
+          this.inputText = this.inputText.substr(0, pos);
+        }
+      }
+    }
+  })
+
+</script>

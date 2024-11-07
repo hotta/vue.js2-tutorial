@@ -1,0 +1,27 @@
+<!-- RGB のスライダーを動かしたら、できた色を表示する -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+  <p v-bind:style="{backgroundColor: mixColor}">{{ mixColor }}</p>
+  <input type="range" v-model="R" min="0" max="255"><br>
+  <input type="range" v-model="G" min="0" max="255"><br>
+  <input type="range" v-model="B" min="0" max="255"><br>
+</div>
+
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      R: 255,
+      G: 255,
+      B: 255,
+    },
+    computed: {
+      mixColor: function() {
+        var ans = "RGB(" + this.R + "," + this.G + "," + this.B + ")";
+        return ans;
+      }
+    }
+  })
+
+</script>

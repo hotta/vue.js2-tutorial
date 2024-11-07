@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Chapter13: JSONデータを読み込んで、トランジションをつける</title>
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  </head>
+
+  <body>
+    <h2>JSONデータを読み込んで、トランジションをつける</h2>
+    <div id="app">
+      <transition-group>
+        <!-- key: ノードの新しいリストを差分抽出する、VNode 識別のためのヒント -->
+        <div v-for="item in dataArray" v-bind:key="item.title">
+          <!-- dataArray の要素を object で受け取る -->
+          <my-product v-bind:object="item"></my-product>
+        </div>
+      </transition-group>
+      <button v-on:click="sortData">ソート</button>
+      <button v-on:click="shuffleData">シャッフル</button>
+      <p><input type="file" v-on:change="loadData"></p>
+    </div>
+    <style>
+      .v-move {
+        transition: transform ls;
+      }
+    </style>
+    <script>
+      var MyComponent = {
+        props: [ "object" ],
+        template: `
+        <div style="width: 600px; backgroundColor: #ffddaa;">
+          <p style="backgroundColor: #ffa95e;">{{ object.title }}</p>
+          <p>解説：{{ object.body }}</p>
+        </div>`
+      }
+      new Vue({
+        el: '#app',
+        data: {
+          dataArray: []
+        },
+        components: {
+          'my-product': MyComponent
+        },
+        methods: {
+          sortData: function() {
+            this.dataArray.sort(function(a, b)  {
+              return (a.title < b.title ? -1 : 1);
+              return 0;
+            });
+          },
+          shuffleData: function() {
+            var buffer = [];
+            var len = this.dataArray.length;
+            for (var i=len; len > 0; len--) {
+              var r = Math.floor(Math.random() * len);
+              buffer.push(this.dataArray[r]);
+              this.dataArray.splice(r, 1);
+            }
+            this.dataArray = buffer;
+          },
+          loadData: function(e) {
+            file = e.target.files[0];
+            if (file) {
+              var reader = new FileReader();
+              var vm = this;
+              reader.onload = function(e) {
+                vm.dataArray = JSON.parse(e.target.result);
+              }
+              reader.readAsText(file);
+            }
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
